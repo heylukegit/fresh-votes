@@ -18,6 +18,10 @@
 
 
 
+[What's a Java Bean and Serializable?](https://stackoverflow.com/questions/3295496/what-is-a-javabean-exactly)
+
+
+
 ## Database Design
 
 Vote
