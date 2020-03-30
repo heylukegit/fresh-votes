@@ -12,13 +12,21 @@
 
 [Why composite-id class must implement Serializable?](https://stackoverflow.com/questions/9271835/why-composite-id-class-must-implement-serializable)
 
-
-
 [Authentication vs. Authorization](https://medium.com/datadriveninvestor/authentication-vs-authorization-716fea914d55)
 
-
-
 [What's a Java Bean and Serializable?](https://stackoverflow.com/questions/3295496/what-is-a-javabean-exactly)
+
+
+
+What's CSRF? https://www.youtube.com/watch?v=m0EHlfTgGUU
+
+Cross Site Request Forgery. It should be avoided by some methods. 
+
+
+
+[How to use Spring Security for CSRF protection?](https://docs.spring.io/spring-security/site/docs/3.2.0.CI-SNAPSHOT/reference/html/csrf.html)
+
+
 
 
 

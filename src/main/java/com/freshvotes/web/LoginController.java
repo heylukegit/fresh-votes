@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
-//    @GetMapping(value = "login")  // two anotations are the same
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "login";  // correspond to the login HTML
     }

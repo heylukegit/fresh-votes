@@ -9,8 +9,6 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
-<!--      xmlns:tiles="http://www.thymeleaf.org"-->
-<!--      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">-->
 
 <head>
     <meta charset="UTF-8">
@@ -19,6 +17,10 @@
 
 <body>
     <form action="" method="post">
+
+        <!--   Enable csrf protection here.   -->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
         <fieldset>
             <legend>Please Login</legend>
 

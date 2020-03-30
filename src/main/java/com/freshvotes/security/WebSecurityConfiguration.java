@@ -56,12 +56,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         Only the homepage is allowed to all visitor without authentication.
         Specify the login and logout page.
          */
-        http.csrf().disable()
+        http
             .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .anyRequest().hasRole("USER").and()
             .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/dashboard")
                 .permitAll()
                 .and()
             .logout()
