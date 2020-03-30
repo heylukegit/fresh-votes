@@ -1,4 +1,10 @@
-package com.freshvotes;
+/*
+2020-03-29 15:33:54
+    学会 RequestMapping RequestMethod 的使用
+
+ */
+
+package com.freshvotes.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

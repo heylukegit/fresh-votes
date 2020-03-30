@@ -1,0 +1,52 @@
+<!--
+2020-03-29 21:10:42
+
+    There is something wrong about the main part of the login page.
+    We should probaly fix that.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<!--      xmlns:tiles="http://www.thymeleaf.org"-->
+<!--      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>FreshVotes Login</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Please Login</legend>
+
+            <div th:if="${param.error != null}">
+                Failed to login.
+                <div th:if="${SPRING_SECURITY_LAST_EXCEPTION != null}">
+                    Reason: <span th:text="${SPRING_SECURITY_LAST_EXCEPTION.message}"></span>
+                </div>
+            </div>
+
+            <div th:if="${param.logout != null}">
+                You have been logged out.
+            </div>
+            <p>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" />
+            </p>
+
+            <p>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+            </p>
+
+            <div>
+                <button type="submit" class="btn">Log in</button>
+            </div>
+
+        </fieldset>
+    </form>
+</body>
+</html>
