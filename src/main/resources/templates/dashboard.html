@@ -9,11 +9,10 @@
 
     <h1>FreshVotes Dashboard</h1>
 
+    <!-- After enable csrf protection, we must use post method to logout, not a href -->
     <form action="/logout" method="post">
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-
         <button type="submit">Logout</button>
-
     </form>
 
 

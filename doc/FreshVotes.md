@@ -69,3 +69,46 @@ https://www.youtube.com/watch?v=ohbQYiDXRuY&list=PL2OrQJM8zmZ0k-S5FfR2qrwgupnaIN
 
 
 
+
+
+
+
+# Video Notes
+
+## FreshVotes 15 - Leveraging a Database for Users
+
+Controller 
+
+Service 
+
+Repository
+
+Three important components. 
+
+
+
+
+
+## FreshVotes 16 - Implementing User Details
+
+这一节课最重要的是搞清楚三个 class 之间的关系
+
+`CustomSecurityUser` , `Authority` , `User`
+
+为什么不直接使用 `User` 继承 `org.springframework.security.core.userdetails.UserDetails` . 是因为避免使得我们自己的 class 和 `Spring Security` 的 class 高度嵌合.
+
+Authority 是另外的一个 `Entity` , 用来存储相关信息的
+
+
+
+<img src="pic/Xnip2020-03-30_21-31-14.png" alt="Xnip2020-03-30_21-31-14"  />
+
+
+
+- `Authority` and `User` are two entities. 
+- `User` is the parent of `CustomSecurityUser`. 
+- `CustomSecurityUser` implements `UserDetails`. 
+- `UserDetails` is needed for `UserDetailsServiceImpl`, which implements `org.springframework.security.core.userdetails.UserDetailsService`
+
+
+
