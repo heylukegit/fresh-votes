@@ -77,11 +77,11 @@ https://www.youtube.com/watch?v=ohbQYiDXRuY&list=PL2OrQJM8zmZ0k-S5FfR2qrwgupnaIN
 
 ## FreshVotes 15 - Leveraging a Database for Users
 
-Controller 
+**Controller** 
 
-Service 
+**Service** 
 
-Repository
+**Repository**
 
 Three important components. 
 
@@ -109,6 +109,18 @@ Authority 是另外的一个 `Entity` , 用来存储相关信息的
 - `User` is the parent of `CustomSecurityUser`. 
 - `CustomSecurityUser` implements `UserDetails`. 
 - `UserDetails` is needed for `UserDetailsServiceImpl`, which implements `org.springframework.security.core.userdetails.UserDetailsService`
+
+
+
+
+
+## FreshVotes 17 - Logging into FreshVotes
+
+Encoder and decoder
+
+Password should never be stored in plaintext. 
+
+
 
 
 

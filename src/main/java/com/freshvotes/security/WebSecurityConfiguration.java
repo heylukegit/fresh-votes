@@ -17,6 +17,7 @@
 package com.freshvotes.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -29,6 +30,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    @Qualifier("userDetailsServiceImpl")
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -54,11 +56,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService)
             .passwordEncoder(getPasswordEncoder());
 
-//        auth.inMemoryAuthentication()
-//            .passwordEncoder(getPasswordEncoder())
-//            .withUser("luke")
-//            .password(getPasswordEncoder().encode("asdf"))
-//            .roles("USER");
     }
 
     @Override
@@ -71,6 +68,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")  // todo is the format right?
                 .anyRequest().hasRole("USER").and()
             .formLogin()
                 .loginPage("/login")
@@ -80,7 +79,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
             .logout()
                 .logoutUrl("/logout")
                 .permitAll();
-
     }
 }
 

@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+
+@Service  /* Always remember to annotate your class properly */
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
@@ -18,6 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        /* Search user name in the repository/database */
         User user = userRepo.findByUsername(username);
 
         if (user == null)

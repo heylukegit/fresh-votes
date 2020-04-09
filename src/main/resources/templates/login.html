@@ -13,6 +13,18 @@
 <head>
     <meta charset="UTF-8">
     <title>FreshVotes Login</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#createAccount").click(function () {
+                window.location.href = "/register";
+            });
+        });
+    </script>
+
 </head>
 
 <body>
@@ -45,7 +57,10 @@
             </p>
 
             <div>
+                <!--   the "submit" type means submiiting the form we have here    -->
                 <button type="submit" class="btn">Log in</button>
+
+                <button type="button" class="btn" id="createAccount">Create Account</button>
             </div>
 
         </fieldset>

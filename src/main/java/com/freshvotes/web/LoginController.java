@@ -13,4 +13,10 @@ public class LoginController {
         return "login";  // correspond to the login HTML
     }
 
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
 }

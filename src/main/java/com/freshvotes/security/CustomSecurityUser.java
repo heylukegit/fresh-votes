@@ -28,17 +28,22 @@ public class CustomSecurityUser extends User implements UserDetails {
 
     @Override
     public Set<Authority> getAuthorities() {
-        return this.getAuthorities();
+        /*
+        We need the "super" here. Because we are using the method from parent object.
+        If we use "this" or nothing (by default still "this") here, we will jump into a
+        infinite loop of set -> get -> get -> get ......
+         */
+        return super.getAuthorities();  // should be "super" here, not "this"
     }
 
     @Override
     public String getPassword() {
-        return this.getPassword();
+        return super.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return this.getUsername();
+        return super.getUsername();
     }
 
     /*

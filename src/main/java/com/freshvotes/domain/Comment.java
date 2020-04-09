@@ -3,8 +3,10 @@ package com.freshvotes.domain;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "comment")
 public class Comment {
     private CommentId pk;
     private String text;
