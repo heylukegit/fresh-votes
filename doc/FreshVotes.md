@@ -75,6 +75,23 @@ https://www.youtube.com/watch?v=ohbQYiDXRuY&list=PL2OrQJM8zmZ0k-S5FfR2qrwgupnaIN
 
 # Video Notes
 
+
+
+## FreshVotes 13 - Adding Password Encoder
+
+**Bcrypt** is an algorithm designed to encrypt password. 
+
+If the input string and number of rounds are fixed, the output string is fixed. 
+
+It's a one way process. 
+
+```
+plain text --Bcrypt--> encoded text (yes)
+encoded text -- No way --> plain text (no)
+```
+
+
+
 ## FreshVotes 15 - Leveraging a Database for Users
 
 **Controller** 
@@ -133,6 +150,28 @@ How to use `thymeleaf` and `@ModelAttribute` to transmit data between html and J
 `csrf` token should be used in all methods except for `get`. 
 
 Add a form in `register.html` . 
+
+
+
+
+
+## FreshVotes 20 - Creating a Registration Page Part III
+
+Use `UserRepository` and `UserService` to save a new registered user information. 
+
+
+
+
+
+```
+John Doe mh3994@cloumbia.edu 
+password: 112233
+
+```
+
+
+
+ 
 
 
 
