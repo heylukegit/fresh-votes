@@ -118,7 +118,25 @@ Authority 是另外的一个 `Entity` , 用来存储相关信息的
 
 Encoder and decoder
 
-Password should never be stored in plaintext. 
+Password should never be stored in plaintext.
+
+
+
+
+
+
+
+## FreshVotes 19 - Creating a Registration Page Part II
+
+How to use `thymeleaf` and `@ModelAttribute` to transmit data between html and Java. 
+
+`csrf` token should be used in all methods except for `get`. 
+
+Add a form in `register.html` . 
+
+
+
+
 
 
 

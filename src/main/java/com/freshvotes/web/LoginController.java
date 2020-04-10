@@ -1,9 +1,9 @@
 package com.freshvotes.web;
 
+import com.freshvotes.domain.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class LoginController {
@@ -15,8 +15,22 @@ public class LoginController {
 
 
     @GetMapping("/register")
-    public String register() {
+    public String register(ModelMap model) {
+        model.put("user", new User());  // put a new User to the HTML page
         return "register";
     }
 
+    @PostMapping("/register")
+    // @ModelAttribute is very important here.
+    // thymeleaf field is the annotation in HTML side and the
+    // ModelAttribute is the Java Spring side in the data transmission.
+    public String registerPost (@ModelAttribute User user) {
+
+        // Use "redirect" here to avoid submitting data again.
+        // Always use redirect in Post method
+        System.out.println(user.toString());
+
+        return "redirect:/register";
+
+    }
 }

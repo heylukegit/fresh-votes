@@ -9,7 +9,27 @@
 
 <body>
     <h2>Register for an account</h2>
-</body>
 
+    <form action="" method="post">
+
+        <!-- Whenever you are using post and csrf, you should include csrf token  -->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+        <!-- Mapping the info on HTML page to the object in Java
+             using thymeleaf and Spring together to do this
+             "th" means thymeleaf namaspace
+             ${} is call Spring Expression Language  -->
+
+        <!--/*@thymesVar id="user" type="com.freshvotes.domain.User"*/-->
+        Name: <input type="text" th:field="${user.name}"> <br/>
+        Email Address: <input type="text" th:field="${user.username}"/> <br/>
+        Password: <input type="password" th:field="${user.password}"/> <br/>
+        Confirm Password: <input type="password" id="confirmPassword"/> <br/><br/>
+
+        <button type="submit">Create Account</button>
+
+    </form>
+
+</body>
 
 </html>
