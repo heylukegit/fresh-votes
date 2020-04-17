@@ -37,10 +37,10 @@
 </head>
 
 <body>
+    <!-- There are always 12 cols in a container -->
     <div class="container">
         <div class="row">
             <div class="col-6">
-
                 <form action="" method="post">
 
                     <!--   Enable csrf protection here.   -->
@@ -59,22 +59,37 @@
                         <div th:if="${param.logout != null}">
                             You have been logged out.
                         </div>
-                        <p>
-                            <label for="username">Username</label>
-                            <input type="text" id="username" name="username" />
-                        </p>
 
-                        <p>
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" />
-                        </p>
+                        <!-- Look for more details what class to use on doc of Bootstrap -->
+                        <div class="form-group row">
+                            <div class="col-2">
+                                <label for="username" class="col-form-label">Username</label>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" id="username" name="username" />
+                            </div>
+                        </div>
 
-                        <div>
-                            <!--   the "submit" type means submiiting the form we have here    -->
-                            <!--  using btn-primary from bootstrap to change the style of the button  -->
-                            <button type="submit" class="btn btn-primary">Log in</button>
+                        <div class="form-group row">
+                            <div class="col-2">
+                                <label for="password" class="col-form-label">Password</label>
+                            </div>
+                            <div class="col-10">
+                                <input type="password" class="form-control" id="password" name="password" />
+                            </div>
+                        </div>
 
-                            <button type="button" class="btn btn-info" id="createAccount">Create Account</button>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <!--   the "submit" type means submiiting the form we have here    -->
+                                <!--  using btn-primary from bootstrap to change the style of the button  -->
+                                <button type="submit" class="btn btn-primary float-left">Log in</button>
+                            </div>
+
+                            <div class="col-6">
+                                <button type="button" class="btn btn-info float-right" id="createAccount">Create Account</button>
+                            </div>
                         </div>
 
                     </fieldset>
