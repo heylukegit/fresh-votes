@@ -79,6 +79,12 @@ https://www.youtube.com/watch?v=ohbQYiDXRuY&list=PL2OrQJM8zmZ0k-S5FfR2qrwgupnaIN
 
 ## FreshVotes 13 - Adding Password Encoder
 
+First 3 mins is very good. 
+
+https://www.youtube.com/watch?v=qr14n0tTtmE
+
+
+
 **Bcrypt** is an algorithm designed to encrypt password. 
 
 If the input string and number of rounds are fixed, the output string is fixed. 
@@ -89,6 +95,14 @@ It's a one way process.
 plain text --Bcrypt--> encoded text (yes)
 encoded text -- No way --> plain text (no)
 ```
+
+Use this link to play around the Bcrypt. 
+
+https://bcrypt-generator.com/
+
+
+
+
 
 
 
@@ -161,13 +175,16 @@ Use `UserRepository` and `UserService` to save a new registered user information
 
 
 
-
-
 ```
 John Doe mh3994@cloumbia.edu 
 password: 112233
-
 ```
+
+
+
+
+
+## FreshVotes 21
 
 
 

@@ -17,6 +17,8 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
     // We need this function to seperate the Service and Contriller.
+    // Add new registered user into database
+    // user and authority table will be updated
     public User save (User user) {
 
         // set password
