@@ -11,6 +11,9 @@ public class Feature {
     private String description;
     private String status;
 
+    private Product product;
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
@@ -45,8 +48,12 @@ public class Feature {
         this.status = status;
     }
 
+    @ManyToOne
+    public Product getProduct() {
+        return product;
+    }
 
-
-
-
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }

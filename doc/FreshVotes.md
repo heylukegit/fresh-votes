@@ -173,8 +173,6 @@ Add a form in `register.html` .
 
 Use `UserRepository` and `UserService` to save a new registered user information. 
 
-
-
 ```
 John Doe mh3994@cloumbia.edu 
 password: 112233

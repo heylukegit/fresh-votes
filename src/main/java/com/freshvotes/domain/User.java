@@ -18,6 +18,8 @@ public class User {
 
     private Set<Authority> authorities = new HashSet<>();
 
+    private Set<Product> products = new HashSet<>();
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // incremental from 1 to infinity
     public Long getId() {
@@ -59,6 +61,15 @@ public class User {
 
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
+    }
+
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "user")
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     @Override  // get a toString method of this Object
