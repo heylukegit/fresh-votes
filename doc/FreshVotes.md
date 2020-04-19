@@ -186,6 +186,21 @@ password: 112233
 
 
 
+## FreshVotes 26 - Creating Product Controller
+
+```
+database action | HTTP method
+-----------------------------
+create	=	POST
+read 		=	GET
+update 	=	PUT
+delete	=	DELETE
+```
+
+
+
+
+
  
 
 
