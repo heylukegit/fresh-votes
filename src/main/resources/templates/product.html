@@ -34,10 +34,16 @@
                 </div>
             </div>
 
-            <!-- show the product info by thymeleaf in a nicer way without "+" -->
-            <div th:text="|Is product published: ${product.published}|"> </div>
+            <!-- A checkbox for the "published" -->
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" th:field="${product.published}" />
 
-            <button class="btn-primary btn" type="submit">Save Product</button>
+                <!-- We use "published1" here because we need to check the checkbox by clicking the label
+                     For more info, see video 30 -->
+                <label class="custom-control-label" for="published1">is published</label>
+            </div>
+
+            <button class="btn-primary btn btn-lg" type="submit">Save Product</button>
 
         </form>
     </div>
