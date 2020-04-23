@@ -9,6 +9,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -67,6 +68,17 @@ public class ProductController {
         product = productRepository.save(product);
 
         // It's a good convension to return the details of results of the post method
+        return "redirect:/products/" + product.getId();
+    }
+
+    @PostMapping("/products/{productId}")
+    // We can use product directly because we use thymeleaf to assign the values in the frontend
+    public String saveProduct(@PathVariable Long productId, Product product) {
+
+        // If save method is invoke without an id, it's an insert.
+        // Otherwise, it's an update.
+        product = productRepository.save(product);
+
         return "redirect:/products/" + product.getId();
     }
 
