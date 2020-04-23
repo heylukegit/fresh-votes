@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>FreshVotes Product</title>
 </head>
+
+<!-- in case the product is null -->
 <body>
 
-    <h1>Product</h1>
+    <div class="container" th:if="${product != null}">
+        <h1>Product</h1>
+
+        <!-- show the product info by thymeleaf in a nicer way without "+" -->
+        <div th:text="|Is product published: ${product.published}|"> </div>
+    </div>
+
+
 </body>
 </html>

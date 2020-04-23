@@ -4,12 +4,19 @@ import com.freshvotes.domain.Product;
 import com.freshvotes.domain.User;
 import com.freshvotes.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.http.HttpResponse;
+import java.util.HashMap;
+import java.util.Optional;
 
 @Controller
 public class ProductController {
@@ -24,7 +31,23 @@ public class ProductController {
 
     // We use the curly brackets here as place holder for the incoming productId
     @GetMapping("/products/{productId}")
-    public String getProduct (@PathVariable Long productId) {
+    // ModelMap is used to pass the product info into frontend
+    public String getProduct (@PathVariable Long productId,
+                              ModelMap modelMap,
+                              HttpServletResponse response) throws IOException {
+
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+
+        if (optionalProduct.isPresent()) {
+            Product product = optionalProduct.get();
+            modelMap.put("product", product);
+        } else {
+            // show a 404 not found error and a message on the page
+            response.sendError(HttpStatus.NOT_FOUND.value(),
+                    "Product with id " + productId.toString() + " was not found");
+            return "product";
+        }
+
         return "product";
     }
 
@@ -39,11 +62,12 @@ public class ProductController {
         product.setPublished(false);
         product.setUser(user);
 
-        // This might not work. Because Hibernate might not recognite the user that was passed in
+        // This might not work. Because Hibernate might not recognite the user that was passed in。
+        // But it turned out to be working.
         product = productRepository.save(product);
 
         // It's a good convension to return the details of results of the post method
         return "redirect:/products/" + product.getId();
     }
-    
+
 }
