@@ -24,8 +24,10 @@
             <!--   Enable csrf protection here.   -->
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 
-            <!-- populate the info of `product` in the model into the backend -->
-            <input type="hidden" th:field="${product.id}">
+            <!-- populate the info of `product` in the model into the backend.
+                 Very important ! -->
+            <input type="hidden" th:field="${product.id}"/>
+            <input type="hidden" th:field="{product.user}"/>
 
             <div class="form-group row">
                 <label for="name" class="col-form-label col-12 col-sm-3 col-lg-2">Name</label>

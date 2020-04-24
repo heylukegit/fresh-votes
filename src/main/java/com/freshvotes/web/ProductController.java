@@ -26,13 +26,6 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-//    @GetMapping("/products")
-//    public String getProduct(@AuthenticationPrincipal User user, ModelMap model) {
-//        List<Product> products = productRepository.findByUser(user);
-//        model.put("products", products);
-//        return "products";
-//    }
-
     // We use the curly brackets here as place holder for the incoming productId
     @GetMapping("/products/{productId}")
     // ModelMap is used to pass the product info into frontend
@@ -40,8 +33,10 @@ public class ProductController {
                               ModelMap modelMap,
                               HttpServletResponse response) throws IOException {
 
-        Optional<Product> optionalProduct = productRepository.findById(productId);
+        // Use the findByIdWithUser() method
+        Optional<Product> optionalProduct = productRepository.findByIdWithUser(productId);
 
+        // If the query didn't return any product.
         if (optionalProduct.isPresent()) {
             Product product = optionalProduct.get();
             modelMap.put("product", product);
@@ -77,6 +72,8 @@ public class ProductController {
     @PostMapping("/products/{productId}")
     // We can use product directly because we use thymeleaf to assign the values in the frontend
     public String saveProduct(@PathVariable Long productId, Product product) {
+
+        System.out.println(product.toString());
 
         // If save method is invoke without an id, it's an insert.
         // Otherwise, it's an update.
