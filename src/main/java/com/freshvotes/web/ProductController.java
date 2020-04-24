@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -25,10 +26,12 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/products")
-    public String getProduct(ModelMap model) {
-        return "product";
-    }
+//    @GetMapping("/products")
+//    public String getProduct(@AuthenticationPrincipal User user, ModelMap model) {
+//        List<Product> products = productRepository.findByUser(user);
+//        model.put("products", products);
+//        return "products";
+//    }
 
     // We use the curly brackets here as place holder for the incoming productId
     @GetMapping("/products/{productId}")
