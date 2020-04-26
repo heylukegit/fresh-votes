@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>FreshVotes Product</title>
@@ -26,8 +24,9 @@
 
             <!-- populate the info of `product` in the model into the backend.
                  Very important ! -->
-            <input type="hidden" th:field="${product.id}"/>
-            <input type="hidden" th:field="{product.user}"/>
+            <input type="hidden" th:field="${product.id}" />
+            <input type="hidden" th:field="${product.user}"/>
+
 
             <div class="form-group row">
                 <label for="name" class="col-form-label col-12 col-sm-3 col-lg-2">Name</label>
@@ -49,7 +48,6 @@
 
         </form>
     </div>
-
 
 </body>
 </html>
