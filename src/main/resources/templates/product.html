@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>FreshVotes Product</title>
 
-    <!--  using bootstrap  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
+    <!-- Use this to replace the header we want to include in every html file -->
+    <script th:replace="fragments/header :: headerElement"></script>
 
 </head>
 
@@ -26,8 +22,9 @@
 
             <!-- populate the info of `product` in the model into the backend.
                  Very important ! -->
-            <input type="hidden" th:field="${product.id}"/>
-            <input type="hidden" th:field="{product.user}"/>
+            <input type="hidden" th:field="${product.id}" />
+            <input type="hidden" th:field="${product.user}"/>
+
 
             <div class="form-group row">
                 <label for="name" class="col-form-label col-12 col-sm-3 col-lg-2">Name</label>
@@ -49,7 +46,6 @@
 
         </form>
     </div>
-
 
 </body>
 </html>
