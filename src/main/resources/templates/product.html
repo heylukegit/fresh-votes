@@ -12,6 +12,9 @@
 <!-- in case the product is null -->
 <body>
 
+    <!-- Add the navigation bar -->
+    <div th:replace="fragments/header::header"></div>
+
     <div class="container" th:if="${product != null}">
         <h1>Product</h1>
 
