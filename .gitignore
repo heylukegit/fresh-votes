@@ -19,6 +19,9 @@ target/
 *.iml
 *.ipr
 
+### Ignore all useless system file ###
+**.DS_Store
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -31,3 +34,5 @@ build/
 .vscode/
 src/main/java/com/freshvotes/.DS_Store
 src/main/java/com/freshvotes/web/.DS_Store
+src/main/resources/.DS_Store
+src/main/resources/static/.DS_Store

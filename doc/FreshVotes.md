@@ -210,9 +210,19 @@ delete	=	DELETE
 
 
 
+##  FreshVotes 37 - Making a Dynamic Login and Logout Button
 
+We had a problem when we tried to use `sec` from `SpringSecurity`. 
+
+sec:authorize="isAuthenticated()" no longer works with thymeleaf-extras-springsecurity5 #61
+
+https://github.com/thymeleaf/thymeleaf-extras-springsecurity/issues/61
 
  
+
+
+
+
 
 
 

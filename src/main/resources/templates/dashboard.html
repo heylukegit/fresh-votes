@@ -19,14 +19,14 @@
                 <h1>FreshVotes Dashboard</h1>
             </div>
 
-            <div class="col-4">
-                <!-- After enable csrf protection, we must use post method to logout, not a href
-                     This need special attention. -->
-                <form action="/logout" method="post" class="float-right">
-                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-                    <button type="submit" class="btn btn-secondary">Logout</button>
-                </form>
-            </div>
+<!--            <div class="col-4">-->
+<!--                &lt;!&ndash; After enable csrf protection, we must use post method to logout, not a href-->
+<!--                     This need special attention. &ndash;&gt;-->
+<!--                <form action="/logout" method="post" class="float-right">-->
+<!--                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+<!--                    <button type="submit" class="btn btn-secondary">Logout</button>-->
+<!--                </form>-->
+<!--            </div>-->
         </div>
 
         <!-- List all the products we retrived in a jumbotron -->

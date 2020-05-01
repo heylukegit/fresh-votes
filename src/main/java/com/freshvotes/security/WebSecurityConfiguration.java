@@ -65,11 +65,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         Only the homepage is allowed to all visitor without authentication.
         Specify the login and logout page.
          */
-        http
-            .authorizeRequests()
+        http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/register").permitAll()
-                .antMatchers("/images/**").permitAll()
+                .antMatchers("/images/*").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")  // todo is the format right?
                 .anyRequest().hasRole("USER").and()
             .formLogin()
