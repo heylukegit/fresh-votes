@@ -24,4 +24,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("select p from Product p join fetch p.user where p.id = :id")
     Optional<Product> findByIdWithUser(Long id);
 
+    Optional<Product> findByName(String name);
+
 }

@@ -14,7 +14,7 @@ public class FeatureController {
     @Autowired
     private FeatureService featureService;
 
-    @PostMapping("")  // this maps to "/products/{prodcutId}/features"
+    @PostMapping("/")  // this maps to "/products/{prodcutId}/features"
     public String createFeature(@PathVariable Long productId) {
         featureService.createFeature(productId);
 

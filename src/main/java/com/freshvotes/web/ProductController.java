@@ -3,6 +3,8 @@ package com.freshvotes.web;
 import com.freshvotes.domain.Product;
 import com.freshvotes.domain.User;
 import com.freshvotes.repositories.ProductRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -15,13 +17,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class ProductController {
+
+    // a logger
+    private Logger log = LoggerFactory.getLogger(ProductController.class);
 
     @Autowired
     private ProductRepository productRepository;
@@ -46,8 +54,26 @@ public class ProductController {
                     "Product with id " + productId.toString() + " was not found");
             return "product";
         }
-
         return "product";
+    }
+
+    @GetMapping("/p/{productName}")  // use p here to disambiguous different GetMapping
+    public String productUserView(@PathVariable String productName, ModelMap model) {
+        if (productName != null) {
+            try {
+                String decodedProductName = URLDecoder.decode(productName, StandardCharsets.UTF_8.name());
+                Optional<Product> productOpt = productRepository.findByName(decodedProductName);
+
+                if (productOpt.isPresent()) {
+                    model.put("product", productOpt.get());
+                }
+
+            } catch (UnsupportedEncodingException e) {
+                log.error("There was an error decoding a productName URL", e);
+            }
+        }
+
+        return "productUserView";
     }
 
     // Receive a post from the login page (`CreateProduct` button)
