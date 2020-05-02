@@ -2,6 +2,9 @@ package com.freshvotes.domain;
 
 import javax.persistence.*;
 
+
+// POST -> freshvotes.com/products/{productId}/features  (create a feature request)
+// GET -> freshvotes.com/products/{productId}/freatures/{featureId}  (get a feature)
 @Entity
 @Table(name = "feature")
 public class Feature {
