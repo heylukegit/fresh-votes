@@ -129,6 +129,12 @@ Three important components.
 
 
 
+**Controller** talks to **Service**. **Service** talks to **Repository**. **Repository** has **CRUD** operations on the database.  
+
+**Controller** shouldn't talk to **Repository** directly. 
+
+
+
 
 
 ## FreshVotes 16 - Implementing User Details

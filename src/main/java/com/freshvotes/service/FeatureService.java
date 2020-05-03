@@ -38,4 +38,14 @@ public class FeatureService {
 
         return feature;
     }
+
+    public Feature save(Feature feature) {
+        Feature resFeature = featureRepository.save(feature);
+
+        return resFeature;
+    }
+
+    public Optional<Feature> findById(Long featureId) {
+        return featureRepository.findById(featureId);
+    }
 }
