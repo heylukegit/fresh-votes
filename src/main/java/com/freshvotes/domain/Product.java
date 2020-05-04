@@ -7,6 +7,8 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+// need to make product name specific
+
 @Entity
 @Table(name = "product")
 public class Product {
