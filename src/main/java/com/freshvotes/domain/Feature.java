@@ -1,6 +1,8 @@
 package com.freshvotes.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 // POST -> freshvotes.com/products/{productId}/features  (create a feature request)
@@ -16,6 +18,7 @@ public class Feature {
 
     private Product product;
     private User user;
+    private Set<Comment> comments = new HashSet<>();
 
 
     @Id
@@ -68,5 +71,14 @@ public class Feature {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "pk.feature")
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 }
