@@ -2,6 +2,7 @@ package com.freshvotes.service;
 
 import com.freshvotes.domain.Feature;
 import com.freshvotes.domain.Product;
+import com.freshvotes.domain.User;
 import com.freshvotes.repositories.FeatureRepository;
 import com.freshvotes.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class FeatureService {
     @Autowired
     private FeatureRepository featureRepository;
 
-    public Feature createFeature(Long productId) {
+    public Feature createFeature(Long productId, User user) {
         Feature feature = new Feature();
 
         Optional<Product> productOpt = productRepository.findById(productId);
@@ -29,6 +30,10 @@ public class FeatureService {
             // bi-directional relationship
             feature.setProduct(product);
             product.getFeatures().add(feature);
+
+            // bi-directional relationship
+            feature.setUser(user);
+            user.getFeatures().add(feature);
 
             feature.setStatus("Pending Review");
 

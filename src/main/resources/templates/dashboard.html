@@ -21,6 +21,7 @@
 
         </div>
 
+        <!-- treat each product as a card -->
         <div class="card" th:each="product : ${products}" style="margin-top: 0.7em; margin-bottom: 0.7em;">
             <div class="card-body">
                 <h5 class="card-title" th:text="${product.name}"></h5>
@@ -45,7 +46,7 @@
 
             </div>
         </div>
-        
+
     </div>
 
 

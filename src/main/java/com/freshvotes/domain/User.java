@@ -17,8 +17,8 @@ public class User {
     private String name;
 
     private Set<Authority> authorities = new HashSet<>();
-
     private Set<Product> products = new HashSet<>();
+    private Set<Feature> features = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // incremental from 1 to infinity
@@ -70,6 +70,16 @@ public class User {
 
     public void setProducts(Set<Product> products) {
         this.products = products;
+    }
+
+    @OneToMany(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "user")
+    // mappedBy indicate tht name of variable in Feature, which map the current user.
+    public Set<Feature> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(Set<Feature> features) {
+        this.features = features;
     }
 
     @Override  // get a toString method of this Object
