@@ -48,6 +48,8 @@ public class FeatureController {
         if (featureOpt.isPresent()) {
             Feature feature = featureOpt.get();
             model.put("feature", feature);
+
+            // load all comments related to this feature. 
             model.put("comments", feature.getComments());
         }
         // todo handle the situation that we cannot find a feature by featureId
