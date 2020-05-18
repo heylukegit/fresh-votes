@@ -54,7 +54,7 @@
         </div>
 
         <!-- hide the button when current user is not the owner of the product -->
-        <div style="margin-top: 1em" th:if="user.id == feature.user.id">
+        <div style="margin-top: 1em" th:if="${user.id == feature.user.id}">
             <button type="submit" class="btn btn-primary">Save</button>
         </div>
     </form>

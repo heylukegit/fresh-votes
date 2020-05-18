@@ -13,6 +13,8 @@ public class User {
 
     private Long id;
     private String username;
+
+    // todo at the frontend, confirm password is not done yet.
     private String password;
     private String name;
 
