@@ -1,5 +1,7 @@
 package com.freshvotes.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,6 +43,7 @@ public class Comment {
     }
 
     @ManyToOne
+    @JsonIgnore  // ignore this attribute, when converting into json file
     public User getUser() {
         return user;
     }
@@ -50,6 +53,7 @@ public class Comment {
     }
 
     @ManyToOne
+    @JsonIgnore  // ignore this attribute, when converting into json file
     public Feature getFeature() {
         return feature;
     }
@@ -62,6 +66,7 @@ public class Comment {
     // explanation about JoinColumn: https://www.baeldung.com/jpa-join-column
     // This create a column called comment_id, which points to the id of parent comment
     @JoinColumn(name = "comment_id", nullable = true)
+    @JsonIgnore
     public Comment getComment() {
         return comment;
     }
