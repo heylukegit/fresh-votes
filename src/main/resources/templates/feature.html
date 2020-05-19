@@ -69,8 +69,12 @@
             </div>
         </form>
 
+        <!-- show the comments in a indented format -->
         <div th:each="comment: ${comments}">
-            <span th:text="${comment.text}"></span>
+            <span th:if="${comment.comment == null}" th:text="${comment.text}"></span>
+            <div th:each="commentLevel1: ${comment.comments}" style="margin-left: 1em">
+                <span th:text="${commentLevel1.text}"></span>
+            </div>
         </div>
 
     </div>
